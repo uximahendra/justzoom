@@ -17,8 +17,10 @@ const ScrollIndicator = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="scroll-indicator">
-      <span>Scroll</span>
+    <div className="fixed bottom-8 right-8 z-10">
+      <span className="text-sm font-serif text-muted-foreground tracking-wider">
+        Scroll
+      </span>
     </div>
   );
 };
