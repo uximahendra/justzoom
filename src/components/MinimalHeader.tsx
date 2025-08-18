@@ -10,13 +10,13 @@ const MinimalHeader = () => {
       <header className="fixed top-0 right-0 z-50 p-6">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="w-12 h-12 flex items-center justify-center hover-rise bg-background/80 backdrop-blur-sm"
+          className="w-10 h-10 flex items-center justify-center hover-rise"
           aria-label="Toggle menu"
         >
           {isMenuOpen ? (
-            <X className="w-7 h-7 text-foreground" />
+            <X className="w-6 h-6 text-background" />
           ) : (
-            <Menu className="w-7 h-7 text-foreground" />
+            <Menu className="w-6 h-6 text-foreground" />
           )}
         </button>
       </header>
@@ -30,8 +30,8 @@ const MinimalHeader = () => {
         <div className="h-full flex flex-col justify-center items-center text-center px-6">
           {/* Logo at top */}
           <div className="absolute top-24">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl text-background font-light tracking-wide font-noto">
-              justzoom
+            <h1 className="text-4xl md:text-5xl lg:text-6xl text-background font-light tracking-wide">
+              rightsdefender
             </h1>
           </div>
 
@@ -39,21 +39,21 @@ const MinimalHeader = () => {
           <nav className="space-y-8 mb-16">
             <a
               href="#services"
-              className="block text-2xl md:text-3xl lg:text-4xl text-background hover-rise transition-colors hover:text-accent font-light font-noto"
+              className="block text-2xl md:text-3xl lg:text-4xl text-background hover-rise transition-colors hover:text-accent font-light"
               onClick={() => setIsMenuOpen(false)}
             >
               Services
             </a>
             <a
               href="#about"
-              className="block text-2xl md:text-3xl lg:text-4xl text-background hover-rise transition-colors hover:text-accent font-light font-noto"
+              className="block text-2xl md:text-3xl lg:text-4xl text-background hover-rise transition-colors hover:text-accent font-light"
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </a>
             <a
               href="#contact"
-              className="block text-2xl md:text-3xl lg:text-4xl text-background hover-rise transition-colors hover:text-accent font-light font-noto"
+              className="block text-2xl md:text-3xl lg:text-4xl text-background hover-rise transition-colors hover:text-accent font-light"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
@@ -62,14 +62,14 @@ const MinimalHeader = () => {
 
           {/* Contact info at bottom */}
           <div className="absolute bottom-24 text-center">
-            <p className="text-lg text-background mb-4 font-noto">
+            <p className="text-lg text-background mb-4">
               Get in touch
             </p>
             <a
-              href="mailto:hello@justzoom.com"
-              className="text-accent hover:text-background transition-colors font-noto"
+              href="mailto:hello@rightsdefender.com"
+              className="text-accent hover:text-background transition-colors"
             >
-              hello@justzoom.com
+              hello@rightsdefender.com
             </a>
           </div>
         </div>
