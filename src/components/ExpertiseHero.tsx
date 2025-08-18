@@ -1,16 +1,18 @@
 const ExpertiseHero = () => {
   return (
     <section className="scroll-section flex flex-col items-center justify-center text-center px-6 py-16">
-      {/* Hero heading */}
-      <div className="max-w-6xl mx-auto mb-12">
-        <h1 className="hero-text mb-4">
-          <span className="text-foreground">When your online rights are</span>
-          <br />
-          <span className="text-accent font-medium">violated</span>
-        </h1>
-        <h2 className="hero-text text-foreground">
-          we exist to protect them
+      {/* Logo at top */}
+      <div className="mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
+          justzoom
         </h2>
+      </div>
+
+      {/* Hero heading */}
+      <div className="max-w-4xl mx-auto mb-12">
+        <h1 className="body-large mb-4 text-foreground">
+          When your online rights are <span className="text-accent font-medium">violated</span>, we exist to protect them
+        </h1>
       </div>
 
       {/* Description paragraph */}
