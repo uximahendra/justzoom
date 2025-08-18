@@ -8,36 +8,36 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Clean minimal color palette */
+    /* Minimalist black/white palette */
     --background: 0 0% 100%;
-    --foreground: 0 0% 8%;
+    --foreground: 0 0% 0%;
     
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 8%;
+    --card-foreground: 0 0% 0%;
     
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
+    --popover-foreground: 0 0% 0%;
     
-    --primary: 0 0% 8%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
     
     --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 8%;
+    --secondary-foreground: 0 0% 0%;
     
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
     
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 8%;
+    --accent: 10 76% 85%; /* Subtle coral accent like original */
+    --accent-foreground: 0 0% 0%;
     
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     
     --border: 0 0% 91%;
     --input: 0 0% 91%;
-    --ring: 0 0% 8%;
+    --ring: 0 0% 0%;
     
-    --radius: 0.5rem;
+    --radius: 0rem; /* Sharp corners like original */
     
     /* Custom design tokens */
     --font-serif: 'Playfair Display', serif;
@@ -105,30 +105,86 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
   
-  
-  /* Elegant animations */
-  .fade-in-up {
-    opacity: 0;
-    transform: translateY(2rem);
-    animation: fadeInUp 0.8s ease-out forwards;
+  /* Smooth scroll snapping */
+  .scroll-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
   }
-  
-  @keyframes fadeInUp {
+
+  .scroll-section {
+    scroll-snap-align: start;
+    min-height: 100vh;
+  }
+
+  /* Typography matching original */
+  .hero-text {
+    font-size: clamp(2rem, 8vw, 8rem);
+    line-height: 1.1;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    font-family: var(--font-serif);
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 5vw, 4rem);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    font-family: var(--font-serif);
+  }
+
+  .body-large {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    line-height: 1.6;
+    font-weight: 400;
+    font-family: var(--font-sans);
+  }
+
+  /* Animations */
+  .fade-in {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  .slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-  
-  .fade-in-up-delay {
-    animation-delay: 0.2s;
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    position: relative;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
   }
   
-  .fade-in-up-delay-2 {
-    animation-delay: 0.4s;
-  }
-  
-  /* Smooth hover effects */
+  /* Elegant hover effects */
   .hover-rise {
     transition: var(--transition-fast);
   }
