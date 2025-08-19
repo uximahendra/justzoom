@@ -37,6 +37,8 @@ const OverlayMenu = ({ isOpen, onClose }: OverlayMenuProps) => {
         navigate('/about');
       } else if (sectionId === 'services') {
         navigate('/services');
+      } else if (sectionId === 'contact') {
+        navigate('/contact');
       } else if (sectionId === 'home') {
         navigate('/');
       } else {
