@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
-import MinimalHeader from "@/components/MinimalHeader";
-import ExpertiseHero from "@/components/ExpertiseHero";
-import ServiceSection from "@/components/ServiceSection";
-import FinalSection from "@/components/FinalSection";
+import { useState } from "react";
+import HeaderBar from "@/components/HeaderBar";
+import OverlayMenu from "@/components/OverlayMenu";
+import FixedTopLogo from "@/components/FixedTopLogo";
+import IntroSection from "@/components/IntroSection";
+import WeDoSection from "@/components/WeDoSection";
+import CTASection from "@/components/CTASection";
 
 const Index = () => {
-  const [currentSection, setCurrentSection] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const services = [
     "We do Content, Image & Video Removal",
@@ -18,53 +20,34 @@ const Index = () => {
     "We do Copyright & DMCA Takedowns"
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const sectionIndex = Math.floor(scrollPosition / windowHeight);
-      setCurrentSection(Math.min(sectionIndex, services.length + 2)); // +2 for hero and final
-    };
+  const handleMenuOpen = () => {
+    setIsMenuOpen(true);
+  };
 
-    window.addEventListener('scroll', handleScroll);
-    
-    // Add intersection observer for animations
-    const observeElements = document.querySelectorAll('.slide-up');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    observeElements.forEach(el => observer.observe(el));
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      observer.disconnect();
-    };
-  }, [services.length]);
+  const handleMenuClose = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
-    <div className="min-h-screen bg-background text-foreground scroll-container">
-      <MinimalHeader />
+    <>
+      <HeaderBar onMenuClick={handleMenuOpen} />
+      <OverlayMenu isOpen={isMenuOpen} onClose={handleMenuClose} />
+      <FixedTopLogo />
       
       <main>
-        <ExpertiseHero />
+        <IntroSection />
         
         {services.map((service, index) => (
-          <ServiceSection 
+          <WeDoSection 
             key={index}
             title={service}
-            index={index}
-            total={services.length}
+            id={index === 0 ? 'services' : undefined}
           />
         ))}
         
-        <FinalSection />
+        <CTASection />
       </main>
-    </div>
+    </>
   );
 };
 
