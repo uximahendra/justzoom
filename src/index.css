@@ -266,7 +266,7 @@ All colors MUST be HSL.
   /* About page typography */
   .client-heading {
     font-family: var(--font-noto);
-    font-size: clamp(24px, 6vw, 48px);
+    font-size: clamp(36px, 8vw, 72px);
     font-weight: 400;
     line-height: 1.1;
     color: hsl(var(--foreground));
