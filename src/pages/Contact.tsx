@@ -5,6 +5,7 @@ import FixedTopLogo from '@/components/FixedTopLogo';
 import AboutFooter from '@/components/AboutFooter';
 import ContactIntroSection from '@/components/ContactIntroSection';
 import ContactDetailsSection from '@/components/ContactDetailsSection';
+import ContactAdvantageSection from '@/components/ContactAdvantageSection';
 import ContactWhySection from '@/components/ContactWhySection';
 import ContactFinalSection from '@/components/ContactFinalSection';
 
@@ -28,6 +29,7 @@ const Contact = () => {
       <main className="snap-container">
         <ContactIntroSection />
         <ContactDetailsSection />
+        <ContactAdvantageSection />
         <ContactWhySection />
         <ContactFinalSection />
       </main>
