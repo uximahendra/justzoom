@@ -356,9 +356,27 @@ All colors MUST be HSL.
     cursor: pointer;
   }
 
-  .contact-final-cta:hover {
-    text-decoration: none;
+  .contact-form-submit-btn {
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-noto);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px hsl(var(--foreground) / 0.15);
+  }
+
+  .contact-form-submit-btn:hover:not(:disabled) {
+    background: hsl(var(--foreground) / 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px hsl(var(--foreground) / 0.25);
+  }
+
+  .contact-form-submit-btn:disabled {
     opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
   }
 
   /* Contact Form Styles */
@@ -429,31 +447,6 @@ All colors MUST be HSL.
   .contact-form-upload-btn:hover {
     color: hsl(var(--foreground));
     text-decoration: none;
-  }
-
-  .contact-form-submit-btn {
-    font-family: var(--font-noto);
-    font-weight: 400;
-    font-size: 16px;
-    background: transparent;
-    border: none;
-    color: hsl(var(--foreground));
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 4px;
-    padding: 8px 0;
-    transition: all 0.3s ease;
-  }
-
-  .contact-form-submit-btn:hover {
-    background: transparent;
-    text-decoration: none;
-    opacity: 0.7;
-  }
-
-  .contact-form-submit-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
   }
 
   /* Section heading for contact details */

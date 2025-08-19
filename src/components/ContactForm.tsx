@@ -12,7 +12,6 @@ const ContactForm = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [file, setFile] = useState<File | null>(null);
   const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -21,12 +20,6 @@ const ContactForm = () => {
       ...prev,
       [name]: value
     }));
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFile(e.target.files[0]);
-    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -59,7 +52,6 @@ const ContactForm = () => {
         phone: '',
         message: ''
       });
-      setFile(null);
       
     } catch (error) {
       toast({
@@ -73,82 +65,90 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="global-container">
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-        {/* Left Column - Content */}
-        <div className="space-y-8">
+    <div className="global-container py-16">
+      <div className="grid lg:grid-cols-5 gap-16 items-start">
+        {/* Left Column - Content (2 columns) */}
+        <div className="lg:col-span-2 space-y-12">
           <div>
             <h2 className="contact-form-heading mb-8">
               Get in Touch
             </h2>
             <div className="space-y-6">
               <div className="block">
+                <p className="contact-form-label mb-2">Email</p>
                 <a 
                   href="mailto:hello@justzoom.com" 
-                  className="contact-subtext hover:opacity-70 transition-opacity duration-200 block"
+                  className="contact-subtext hover:opacity-70 transition-opacity duration-200 block text-lg"
                 >
-                  <strong>Email:</strong> hello@justzoom.com
+                  hello@justzoom.com
                 </a>
               </div>
               <div className="block">
+                <p className="contact-form-label mb-2">Phone</p>
                 <a 
                   href="tel:+15551234567" 
-                  className="contact-subtext hover:opacity-70 transition-opacity duration-200 block"
+                  className="contact-subtext hover:opacity-70 transition-opacity duration-200 block text-lg"
                 >
-                  <strong>Phone:</strong> +1 (555) 123-4567
+                  +1 (555) 123-4567
                 </a>
               </div>
               <div className="block">
+                <p className="contact-form-label mb-2">WhatsApp</p>
                 <a 
                   href="https://wa.me/15551234567" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="contact-subtext hover:opacity-70 transition-opacity duration-200 block"
+                  className="contact-subtext hover:opacity-70 transition-opacity duration-200 block text-lg"
                 >
-                  <strong>WhatsApp:</strong> +1 (555) 123-4567
+                  +1 (555) 123-4567
                 </a>
               </div>
             </div>
           </div>
           
-          <div className="pt-8">
-            <h3 className="contact-form-heading mb-6">
+          <div className="pt-4">
+            <h3 className="contact-form-heading text-3xl lg:text-4xl mb-4">
               May we meet someday
             </h3>
+            <p className="contact-subtext text-lg opacity-80 leading-relaxed">
+              Ready to protect your online reputation? Let's discuss your situation and find the right solution.
+            </p>
           </div>
         </div>
         
-        {/* Right Column - Form */}
-        <div className="w-full">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Full name field */}
-            <div className="space-y-3">
-              <label className="contact-form-label">
-                Full name
-              </label>
-              <Input
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleInputChange}
-                className="contact-form-input w-full"
-                placeholder="Please fill in this field."
-                required
-              />
-            </div>
-            
-            {/* Email field */}
-            <div className="space-y-3">
-              <label className="contact-form-label">
-                Email
-              </label>
-              <Input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                className="contact-form-input w-full"
-                required
-              />
+        {/* Right Column - Form (3 columns) */}
+        <div className="lg:col-span-3 bg-muted/30 p-8 lg:p-12 rounded-lg">
+          <form onSubmit={handleSubmit} className="space-y-8">
+            {/* Name and Email row */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-3">
+                <label className="contact-form-label">
+                  Full name *
+                </label>
+                <Input
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleInputChange}
+                  className="contact-form-input w-full h-12"
+                  placeholder="Please fill in this field."
+                  required
+                />
+              </div>
+              
+              <div className="space-y-3">
+                <label className="contact-form-label">
+                  Email *
+                </label>
+                <Input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="contact-form-input w-full h-12"
+                  placeholder="your@email.com"
+                  required
+                />
+              </div>
             </div>
             
             {/* Phone field */}
@@ -161,54 +161,42 @@ const ContactForm = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="contact-form-input w-full"
+                className="contact-form-input w-full h-12"
+                placeholder="+1 (555) 123-4567"
               />
             </div>
             
             {/* Message field */}
             <div className="space-y-3">
               <label className="contact-form-label">
-                Message
+                Message *
               </label>
               <Textarea
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
                 className="contact-form-textarea w-full"
-                rows={6}
+                rows={5}
+                placeholder="Tell us about your situation and how we can help..."
                 required
               />
             </div>
             
-            {/* Bottom row - Upload and Submit */}
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-4">
-              <div className="flex items-center gap-2">
-                <input
-                  type="file"
-                  id="file-upload"
-                  onChange={handleFileChange}
-                  className="hidden"
-                  accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                />
-                <label
-                  htmlFor="file-upload"
-                  className="contact-form-upload-btn cursor-pointer"
-                >
-                  Upload file →
-                </label>
-                {file && (
-                  <span className="text-sm text-muted-foreground ml-2">
-                    {file.name}
-                  </span>
-                )}
-              </div>
-              
+            {/* Submit button */}
+            <div className="pt-4">
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="contact-form-submit-btn w-full sm:w-auto"
+                className="contact-form-submit-btn w-full md:w-auto px-12 py-4 h-auto text-lg font-medium"
               >
-                {isSubmitting ? 'Sending...' : 'Submit →'}
+                {isSubmitting ? (
+                  <span className="flex items-center gap-2">
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Sending...
+                  </span>
+                ) : (
+                  'Send Message →'
+                )}
               </Button>
             </div>
           </form>
