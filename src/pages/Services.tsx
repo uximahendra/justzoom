@@ -51,7 +51,7 @@ const Services = () => {
       <FixedTopLogo />
       <OverlayMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       
-      <main>
+      <main className="scroll-container">
         <ServicesIntroSection />
         
         {services.map((service, index) => (

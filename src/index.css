@@ -120,6 +120,12 @@ All colors MUST be HSL.
     height: 100vh;
   }
 
+  .scroll-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+  }
+
   /* Global container */
   .global-container {
     max-width: var(--container-max-width);
