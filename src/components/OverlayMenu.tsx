@@ -30,9 +30,15 @@ const OverlayMenu = ({ isOpen, onClose }: OverlayMenuProps) => {
   const handleNavClick = (sectionId: string) => {
     onClose();
     setTimeout(() => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      if (sectionId === 'about') {
+        window.location.href = '/about';
+      } else if (sectionId === 'home') {
+        window.location.href = '/';
+      } else {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     }, 100);
   };
