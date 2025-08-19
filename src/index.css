@@ -289,4 +289,23 @@ All colors MUST be HSL.
     line-height: 1.1;
     color: hsl(var(--foreground));
   }
+
+  /* Services page typography */
+  .service-heading {
+    font-family: var(--font-noto);
+    font-size: clamp(32px, 6vw, 64px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: hsl(var(--foreground));
+  }
+
+  .service-subtext {
+    font-family: var(--font-noto);
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: hsl(var(--foreground));
+    max-width: 800px;
+    margin: 0 auto;
+  }
 }
