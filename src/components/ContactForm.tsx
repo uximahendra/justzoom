@@ -74,105 +74,145 @@ const ContactForm = () => {
 
   return (
     <div className="global-container">
-      <div className="w-full max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="contact-form-heading mb-8">
-            May we meet someday
-          </h2>
+      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        {/* Left Column - Content */}
+        <div className="space-y-8">
+          <div>
+            <h2 className="contact-form-heading mb-8">
+              Get in Touch
+            </h2>
+            <div className="space-y-6">
+              <div className="block">
+                <a 
+                  href="mailto:hello@justzoom.com" 
+                  className="contact-subtext hover:opacity-70 transition-opacity duration-200 block"
+                >
+                  <strong>Email:</strong> hello@justzoom.com
+                </a>
+              </div>
+              <div className="block">
+                <a 
+                  href="tel:+15551234567" 
+                  className="contact-subtext hover:opacity-70 transition-opacity duration-200 block"
+                >
+                  <strong>Phone:</strong> +1 (555) 123-4567
+                </a>
+              </div>
+              <div className="block">
+                <a 
+                  href="https://wa.me/15551234567" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="contact-subtext hover:opacity-70 transition-opacity duration-200 block"
+                >
+                  <strong>WhatsApp:</strong> +1 (555) 123-4567
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div className="pt-8">
+            <h3 className="contact-form-heading mb-6">
+              May we meet someday
+            </h3>
+          </div>
         </div>
         
-        <form onSubmit={handleSubmit} className="space-y-8">
-          {/* Full name field */}
-          <div className="space-y-3">
-            <label className="contact-form-label">
-              Full name
-            </label>
-            <Input
-              name="fullName"
-              value={formData.fullName}
-              onChange={handleInputChange}
-              className="contact-form-input w-full"
-              placeholder="Please fill in this field."
-              required
-            />
-          </div>
-          
-          {/* Email field */}
-          <div className="space-y-3">
-            <label className="contact-form-label">
-              Email
-            </label>
-            <Input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="contact-form-input w-full"
-              required
-            />
-          </div>
-          
-          {/* Phone field */}
-          <div className="space-y-3">
-            <label className="contact-form-label">
-              Phone number
-            </label>
-            <Input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleInputChange}
-              className="contact-form-input w-full"
-            />
-          </div>
-          
-          {/* Message field */}
-          <div className="space-y-3">
-            <label className="contact-form-label">
-              Message
-            </label>
-            <Textarea
-              name="message"
-              value={formData.message}
-              onChange={handleInputChange}
-              className="contact-form-textarea w-full"
-              rows={6}
-              required
-            />
-          </div>
-          
-          {/* Bottom row - Upload and Submit */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 pt-4">
-            <div className="flex items-center gap-2">
-              <input
-                type="file"
-                id="file-upload"
-                onChange={handleFileChange}
-                className="hidden"
-                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-              />
-              <label
-                htmlFor="file-upload"
-                className="contact-form-upload-btn cursor-pointer"
-              >
-                Upload file →
+        {/* Right Column - Form */}
+        <div className="w-full">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Full name field */}
+            <div className="space-y-3">
+              <label className="contact-form-label">
+                Full name
               </label>
-              {file && (
-                <span className="text-sm text-muted-foreground ml-2">
-                  {file.name}
-                </span>
-              )}
+              <Input
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleInputChange}
+                className="contact-form-input w-full"
+                placeholder="Please fill in this field."
+                required
+              />
             </div>
             
-            <Button
-              type="submit"
-              disabled={isSubmitting}
-              className="contact-form-submit-btn w-full sm:w-auto"
-            >
-              {isSubmitting ? 'Sending...' : 'Submit →'}
-            </Button>
-          </div>
-        </form>
+            {/* Email field */}
+            <div className="space-y-3">
+              <label className="contact-form-label">
+                Email
+              </label>
+              <Input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                className="contact-form-input w-full"
+                required
+              />
+            </div>
+            
+            {/* Phone field */}
+            <div className="space-y-3">
+              <label className="contact-form-label">
+                Phone number
+              </label>
+              <Input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                className="contact-form-input w-full"
+              />
+            </div>
+            
+            {/* Message field */}
+            <div className="space-y-3">
+              <label className="contact-form-label">
+                Message
+              </label>
+              <Textarea
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                className="contact-form-textarea w-full"
+                rows={6}
+                required
+              />
+            </div>
+            
+            {/* Bottom row - Upload and Submit */}
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-4">
+              <div className="flex items-center gap-2">
+                <input
+                  type="file"
+                  id="file-upload"
+                  onChange={handleFileChange}
+                  className="hidden"
+                  accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                />
+                <label
+                  htmlFor="file-upload"
+                  className="contact-form-upload-btn cursor-pointer"
+                >
+                  Upload file →
+                </label>
+                {file && (
+                  <span className="text-sm text-muted-foreground ml-2">
+                    {file.name}
+                  </span>
+                )}
+              </div>
+              
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="contact-form-submit-btn w-full sm:w-auto"
+              >
+                {isSubmitting ? 'Sending...' : 'Submit →'}
+              </Button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
