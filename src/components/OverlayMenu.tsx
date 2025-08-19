@@ -1,5 +1,6 @@
 import { X, Facebook, Linkedin } from 'lucide-react';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface OverlayMenuProps {
   isOpen: boolean;
@@ -7,6 +8,8 @@ interface OverlayMenuProps {
 }
 
 const OverlayMenu = ({ isOpen, onClose }: OverlayMenuProps) => {
+  const navigate = useNavigate();
+  
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -31,9 +34,9 @@ const OverlayMenu = ({ isOpen, onClose }: OverlayMenuProps) => {
     onClose();
     setTimeout(() => {
       if (sectionId === 'about') {
-        window.location.href = '/about';
+        navigate('/about');
       } else if (sectionId === 'home') {
-        window.location.href = '/';
+        navigate('/');
       } else {
         const element = document.getElementById(sectionId);
         if (element) {
