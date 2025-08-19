@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import HeaderBar from '@/components/HeaderBar';
 import OverlayMenu from '@/components/OverlayMenu';
+import FixedTopLogo from '@/components/FixedTopLogo';
 import AboutFooter from '@/components/AboutFooter';
 import ContactIntroSection from '@/components/ContactIntroSection';
 import ContactDetailsSection from '@/components/ContactDetailsSection';
@@ -22,6 +23,7 @@ const Contact = () => {
     <div className="contact-page">
       <HeaderBar onMenuClick={handleMenuClick} />
       <OverlayMenu isOpen={isMenuOpen} onClose={handleMenuClose} />
+      <FixedTopLogo />
       
       <main className="snap-container">
         <ContactIntroSection />
