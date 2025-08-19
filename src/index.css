@@ -183,10 +183,18 @@ All colors MUST be HSL.
   }
   
   .nav-text {
-    font-family: var(--font-poppins);
-    font-weight: 700;
+    font-family: var(--font-noto);
+    font-weight: 400;
     font-size: clamp(18px, 2.5vw, 24px);
     color: hsl(var(--text-inverse));
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 8px;
+  }
+
+  .nav-text:hover {
+    color: hsl(var(--menu-hover)) !important;
+    border-bottom-color: hsl(var(--menu-hover));
   }
 
   /* Animations */
