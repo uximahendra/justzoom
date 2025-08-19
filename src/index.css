@@ -32,6 +32,8 @@ All colors MUST be HSL.
     --accent: 10 76% 85%;
     --accent-foreground: 0 0% 0%;
     
+    --menu-hover: 12 57% 60%; /* #DB715E */
+    
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     

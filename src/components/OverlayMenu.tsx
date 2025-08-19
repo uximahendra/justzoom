@@ -35,6 +35,8 @@ const OverlayMenu = ({ isOpen, onClose }: OverlayMenuProps) => {
     setTimeout(() => {
       if (sectionId === 'about') {
         navigate('/about');
+      } else if (sectionId === 'services') {
+        navigate('/services');
       } else if (sectionId === 'home') {
         navigate('/');
       } else {
@@ -74,25 +76,37 @@ const OverlayMenu = ({ isOpen, onClose }: OverlayMenuProps) => {
         <nav className="flex flex-col md:flex-row items-center gap-6 md:gap-12">
           <button
             onClick={() => handleNavClick('home')}
-            className="nav-text transition-all duration-200 hover:underline hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
+            className="nav-text transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
+            style={{ color: 'hsl(var(--text-inverse))' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = 'hsl(var(--menu-hover))'}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'hsl(var(--text-inverse))'}
           >
             Home
           </button>
           <button
             onClick={() => handleNavClick('about')}
-            className="nav-text transition-all duration-200 hover:underline hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
+            className="nav-text transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
+            style={{ color: 'hsl(var(--text-inverse))' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = 'hsl(var(--menu-hover))'}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'hsl(var(--text-inverse))'}
           >
             About
           </button>
           <button
             onClick={() => handleNavClick('services')}
-            className="nav-text transition-all duration-200 hover:underline hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
+            className="nav-text transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
+            style={{ color: 'hsl(var(--text-inverse))' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = 'hsl(var(--menu-hover))'}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'hsl(var(--text-inverse))'}
           >
             Services
           </button>
           <button
             onClick={() => handleNavClick('contact')}
-            className="nav-text transition-all duration-200 hover:underline hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
+            className="nav-text transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
+            style={{ color: 'hsl(var(--text-inverse))' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = 'hsl(var(--menu-hover))'}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'hsl(var(--text-inverse))'}
           >
             Contact
           </button>
