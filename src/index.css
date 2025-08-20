@@ -101,29 +101,51 @@ All colors MUST be HSL.
 @layer base {
   * {
     @apply border-border;
+    scroll-behavior: smooth !important;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 0;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-noto);
     font-feature-settings: "rlig" 1, "calt" 1;
-  }
-  
-  html {
-    scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
+    overflow-x: hidden;
   }
 
   .scroll-section {
     scroll-snap-align: start;
+    scroll-snap-stop: always;
     min-height: 100vh;
     height: 100vh;
+    position: relative;
   }
 
   .scroll-container {
     scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
     overflow-y: scroll;
+    overflow-x: hidden;
     height: 100vh;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Webkit specific smooth scrolling */
+  body::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+
+  /* Firefox smooth scrolling */
+  @-moz-document url-prefix() {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   /* Global container */

@@ -35,6 +35,8 @@ const WelcomeIntro = ({ onComplete, onMenuClick, isMenuOpen, onMenuClose }: Welc
 
   // Handle scroll to next/previous slide
   const handleScroll = (e: React.WheelEvent) => {
+    e.preventDefault();
+    
     if (e.deltaY > 0 && currentSlide < 2) {
       // Scroll down to next slide
       setCurrentSlide(prev => prev + 1);
@@ -43,7 +45,7 @@ const WelcomeIntro = ({ onComplete, onMenuClick, isMenuOpen, onMenuClose }: Welc
       // Animate in new text after slide transition
       setTimeout(() => {
         setTextVisible(true);
-      }, 300);
+      }, 350);
     } else if (e.deltaY < 0 && currentSlide > 0) {
       // Scroll up to previous slide
       setCurrentSlide(prev => prev - 1);
@@ -52,7 +54,7 @@ const WelcomeIntro = ({ onComplete, onMenuClick, isMenuOpen, onMenuClose }: Welc
       // Animate in new text after slide transition
       setTimeout(() => {
         setTextVisible(true);
-      }, 300);
+      }, 350);
     }
   };
 
@@ -97,7 +99,7 @@ const WelcomeIntro = ({ onComplete, onMenuClick, isMenuOpen, onMenuClose }: Welc
 
       {/* Slide Container */}
       <div 
-        className="h-full transition-transform duration-700 ease-out"
+        className="h-full transition-transform duration-1000 ease-in-out"
         style={{ 
           transform: `translateY(-${currentSlide * 100}vh)` 
         }}

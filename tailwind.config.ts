@@ -63,6 +63,18 @@ export default {
 			maxWidth: {
 				'content': 'var(--content-max-width)',
 			},
+			scrollBehavior: {
+				'smooth': 'smooth',
+			},
+			scrollSnapType: {
+				'y-mandatory': 'y mandatory',
+				'x-mandatory': 'x mandatory',
+			},
+			scrollSnapAlign: {
+				'start': 'start',
+				'center': 'center',
+				'end': 'end',
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
