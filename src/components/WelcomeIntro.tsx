@@ -95,7 +95,7 @@ const WelcomeIntro = ({ onComplete }: WelcomeIntroProps) => {
                 logoVisible 
                   ? 'opacity-100 scale-100' 
                   : 'opacity-0 scale-110'
-              } text-6xl md:text-7xl lg:text-8xl xl:text-9xl`}>
+              } text-4xl md:text-5xl lg:text-6xl xl:text-7xl`}>
                 JustZoom
               </h1>
             </div>
