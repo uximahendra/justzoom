@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
+import HeaderBar from './HeaderBar';
 
 interface WelcomeIntroProps {
   onComplete: () => void;
+  onMenuClick: () => void;
 }
 
-const WelcomeIntro = ({ onComplete }: WelcomeIntroProps) => {
+const WelcomeIntro = ({ onComplete, onMenuClick }: WelcomeIntroProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [logoVisible, setLogoVisible] = useState(false);
   const [textVisible, setTextVisible] = useState(false);
@@ -76,6 +78,7 @@ const WelcomeIntro = ({ onComplete }: WelcomeIntroProps) => {
       className="welcome-intro-container fixed inset-0 bg-background z-50 overflow-hidden transition-opacity duration-300"
       onWheel={handleScroll}
     >
+      <HeaderBar onMenuClick={onMenuClick} />
       {/* Slide Container */}
       <div 
         className="h-full transition-transform duration-700 ease-out"

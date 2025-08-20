@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const FixedTopLogo = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +30,12 @@ const FixedTopLogo = () => {
       }`}
       style={{ top: 'calc(var(--header-height) + 16px)' }}
     >
-      <h1 className="logo-text">justzoom</h1>
+      <button 
+        onClick={() => navigate('/?welcome=true')}
+        className="logo-text hover:opacity-80 transition-opacity duration-200"
+      >
+        justzoom
+      </button>
     </div>
   );
 };

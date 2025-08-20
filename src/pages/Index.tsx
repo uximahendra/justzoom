@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import HeaderBar from "@/components/HeaderBar";
 import OverlayMenu from "@/components/OverlayMenu";
 import FixedTopLogo from "@/components/FixedTopLogo";
@@ -10,6 +11,16 @@ import WelcomeIntro from "@/components/WelcomeIntro";
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    // Check if welcome param is set in URL
+    if (searchParams.get('welcome') === 'true') {
+      setShowWelcome(true);
+      // Remove the param from URL after setting state
+      setSearchParams({});
+    }
+  }, [searchParams, setSearchParams]);
   
   const services = [
     "We do Content, Image & Video Removal",
@@ -35,7 +46,7 @@ const Index = () => {
   };
 
   if (showWelcome) {
-    return <WelcomeIntro onComplete={handleWelcomeComplete} />;
+    return <WelcomeIntro onComplete={handleWelcomeComplete} onMenuClick={handleMenuOpen} />;
   }
 
   return (
