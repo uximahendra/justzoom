@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import HeaderBar from './HeaderBar';
+import OverlayMenu from './OverlayMenu';
 
 interface WelcomeIntroProps {
   onComplete: () => void;
   onMenuClick: () => void;
+  isMenuOpen: boolean;
+  onMenuClose: () => void;
 }
 
-const WelcomeIntro = ({ onComplete, onMenuClick }: WelcomeIntroProps) => {
+const WelcomeIntro = ({ onComplete, onMenuClick, isMenuOpen, onMenuClose }: WelcomeIntroProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [logoVisible, setLogoVisible] = useState(false);
   const [textVisible, setTextVisible] = useState(false);
@@ -79,6 +82,19 @@ const WelcomeIntro = ({ onComplete, onMenuClick }: WelcomeIntroProps) => {
       onWheel={handleScroll}
     >
       <HeaderBar onMenuClick={onMenuClick} />
+      <OverlayMenu isOpen={isMenuOpen} onClose={onMenuClose} />
+      
+      {/* Fixed Centered JustZoom logo */}
+      <div className="fixed inset-0 flex items-center justify-center z-10 pointer-events-none">
+        <h1 className={`font-poppins font-bold text-foreground leading-none transition-all duration-600 ease-out ${
+          logoVisible 
+            ? 'opacity-100 scale-100' 
+            : 'opacity-0 scale-110'
+        } text-4xl md:text-5xl lg:text-6xl xl:text-7xl`}>
+          JustZoom
+        </h1>
+      </div>
+
       {/* Slide Container */}
       <div 
         className="h-full transition-transform duration-700 ease-out"
@@ -89,10 +105,10 @@ const WelcomeIntro = ({ onComplete, onMenuClick }: WelcomeIntroProps) => {
         {slides.map((slide, index) => (
           <div 
             key={slide.id}
-            className="h-screen w-full relative flex items-center justify-center"
+            className="h-screen w-full relative"
           >
             {/* Top-left text */}
-            <div className="absolute top-16 left-8 md:left-16">
+            <div className="absolute top-16 left-8 md:left-16 z-20">
               <h2 className={`font-noto font-normal text-foreground leading-tight transition-all duration-400 ease-out ${
                 textVisible && currentSlide === index
                   ? 'opacity-100 translate-y-0' 
@@ -102,20 +118,9 @@ const WelcomeIntro = ({ onComplete, onMenuClick }: WelcomeIntroProps) => {
               </h2>
             </div>
 
-            {/* Centered JustZoom logo */}
-            <div className="text-center">
-              <h1 className={`font-poppins font-bold text-foreground leading-none transition-all duration-600 ease-out ${
-                logoVisible 
-                  ? 'opacity-100 scale-100' 
-                  : 'opacity-0 scale-110'
-              } text-4xl md:text-5xl lg:text-6xl xl:text-7xl`}>
-                JustZoom
-              </h1>
-            </div>
-
             {/* Bottom right "well, let's see" link (only on last slide) */}
             {index === 2 && (
-              <div className="absolute bottom-16 right-8 md:right-16">
+              <div className="absolute bottom-16 right-8 md:right-16 z-20 pointer-events-auto">
                 <button
                   onClick={handleLetsSeeClick}
                   className={`font-noto font-normal text-foreground underline hover:text-muted-foreground transition-all duration-300 ${
@@ -134,7 +139,7 @@ const WelcomeIntro = ({ onComplete, onMenuClick }: WelcomeIntroProps) => {
 
             {/* Scroll indicator (only on first two slides) */}
             {index < 2 && (
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
                 <div className="flex flex-col items-center gap-2 text-muted-foreground animate-bounce-gentle">
                   <span className="text-sm font-noto tracking-wider">Scroll</span>
                   <ChevronDown className="w-4 h-4" />

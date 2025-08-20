@@ -46,7 +46,14 @@ const Index = () => {
   };
 
   if (showWelcome) {
-    return <WelcomeIntro onComplete={handleWelcomeComplete} onMenuClick={handleMenuOpen} />;
+    return (
+      <WelcomeIntro 
+        onComplete={handleWelcomeComplete} 
+        onMenuClick={handleMenuOpen}
+        isMenuOpen={isMenuOpen}
+        onMenuClose={handleMenuClose}
+      />
+    );
   }
 
   return (
