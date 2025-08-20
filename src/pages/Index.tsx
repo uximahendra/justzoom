@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import HeaderBar from "@/components/HeaderBar";
 import OverlayMenu from "@/components/OverlayMenu";
 import FixedTopLogo from "@/components/FixedTopLogo";
@@ -12,6 +12,7 @@ const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Check if welcome param is set in URL
@@ -45,6 +46,10 @@ const Index = () => {
     setShowWelcome(false);
   };
 
+  const handleContactClick = () => {
+    navigate('/contact');
+  };
+
   if (showWelcome) {
     return (
       <WelcomeIntro 
@@ -61,6 +66,16 @@ const Index = () => {
       <HeaderBar onMenuClick={handleMenuOpen} />
       <OverlayMenu isOpen={isMenuOpen} onClose={handleMenuClose} />
       <FixedTopLogo />
+      
+      {/* Bottom right CTA button */}
+      <div className="fixed bottom-16 right-8 md:right-16 z-30 pointer-events-auto">
+        <button
+          onClick={handleContactClick}
+          className="font-noto font-normal text-foreground underline hover:text-muted-foreground transition-all duration-300 text-xl md:text-2xl lg:text-3xl"
+        >
+          Let us work — Contact us →
+        </button>
+      </div>
       
       <main>
         <IntroSection />
