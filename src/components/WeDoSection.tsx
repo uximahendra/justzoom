@@ -1,4 +1,5 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import ScrollIndicator from '@/components/ScrollIndicator';
 
 interface WeDoSectionProps {
   title: string;
@@ -9,7 +10,7 @@ const WeDoSection = ({ title, id }: WeDoSectionProps) => {
   const { ref, isInView } = useScrollAnimation(0.4);
 
   return (
-    <section id={id} className="scroll-section flex items-center justify-center" ref={ref}>
+    <section id={id} className="scroll-section flex items-center justify-center relative" ref={ref}>
       <div className="global-container">
         <div className="flex items-center justify-center min-h-[50vh] text-center">
           <div className="relative">
@@ -29,6 +30,8 @@ const WeDoSection = ({ title, id }: WeDoSectionProps) => {
           </div>
         </div>
       </div>
+      
+      <ScrollIndicator />
     </section>
   );
 };

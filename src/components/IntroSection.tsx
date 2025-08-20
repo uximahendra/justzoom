@@ -1,5 +1,5 @@
-import { ChevronDown } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import ScrollIndicator from '@/components/ScrollIndicator';
 
 const IntroSection = () => {
   const { ref, isInView } = useScrollAnimation(0.3);
@@ -31,16 +31,7 @@ const IntroSection = () => {
         </div>
       </div>
       
-      {/* Enhanced Scroll Cue */}
-      <button
-        onClick={handleScrollClick}
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-foreground hover:opacity-60 transition-opacity duration-200 focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
-        aria-label="Scroll to next section"
-      >
-        <div className="animate-bounce-gentle animate-pulse-glow">
-          <ChevronDown className="w-6 h-6" />
-        </div>
-      </button>
+      <ScrollIndicator onClick={handleScrollClick} />
     </section>
   );
 };

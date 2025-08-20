@@ -1,4 +1,5 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import ScrollIndicator from '@/components/ScrollIndicator';
 
 interface AboutClientSectionProps {
   heading: string;
@@ -9,7 +10,7 @@ const AboutClientSection = ({ heading, subtext }: AboutClientSectionProps) => {
   const { ref, isInView } = useScrollAnimation(0.3);
 
   return (
-    <section className="scroll-section flex items-center justify-center" ref={ref}>
+    <section className="scroll-section flex items-center justify-center relative" ref={ref}>
       <div className="global-container">
         <div className="flex items-center justify-center min-h-[50vh] text-center">
           <div className="space-y-8">
@@ -33,6 +34,8 @@ const AboutClientSection = ({ heading, subtext }: AboutClientSectionProps) => {
           </div>
         </div>
       </div>
+      
+      <ScrollIndicator />
     </section>
   );
 };
