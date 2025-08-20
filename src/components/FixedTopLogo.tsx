@@ -11,10 +11,10 @@ const FixedTopLogo = () => {
       setIsVisible(scrolled > 100);
     };
 
-    // Show logo with animation on initial load
+    // Show logo with smooth slide up animation on initial load
     const timer = setTimeout(() => {
-      handleScroll();
-    }, 500);
+      setIsVisible(true);
+    }, 800);
 
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -25,8 +25,8 @@ const FixedTopLogo = () => {
 
   return (
     <div 
-      className={`fixed left-1/2 transform -translate-x-1/2 z-[900] transition-all duration-500 ${
-        isVisible ? 'opacity-100 animate-logo-reveal' : 'opacity-0'
+      className={`fixed left-1/2 transform -translate-x-1/2 z-[900] transition-all duration-700 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
       style={{ top: 'calc(var(--header-height) + 16px)' }}
     >

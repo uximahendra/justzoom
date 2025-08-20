@@ -34,12 +34,16 @@ const OverlayMenu = ({ isOpen, onClose }: OverlayMenuProps) => {
     onClose();
     setTimeout(() => {
       if (sectionId === 'about') {
+        window.scrollTo(0, 0);
         navigate('/about');
       } else if (sectionId === 'services') {
+        window.scrollTo(0, 0);
         navigate('/services');
       } else if (sectionId === 'contact') {
+        window.scrollTo(0, 0);
         navigate('/contact');
       } else if (sectionId === 'home') {
+        window.scrollTo(0, 0);
         navigate('/');
       } else {
         const element = document.getElementById(sectionId);
