@@ -28,10 +28,20 @@ const WelcomeIntro = ({ onComplete }: WelcomeIntroProps) => {
     };
   }, []);
 
-  // Handle scroll to next slide
+  // Handle scroll to next/previous slide
   const handleScroll = (e: React.WheelEvent) => {
     if (e.deltaY > 0 && currentSlide < 2) {
+      // Scroll down to next slide
       setCurrentSlide(prev => prev + 1);
+      setTextVisible(false);
+      
+      // Animate in new text after slide transition
+      setTimeout(() => {
+        setTextVisible(true);
+      }, 300);
+    } else if (e.deltaY < 0 && currentSlide > 0) {
+      // Scroll up to previous slide
+      setCurrentSlide(prev => prev - 1);
       setTextVisible(false);
       
       // Animate in new text after slide transition
