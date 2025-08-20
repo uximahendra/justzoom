@@ -11,34 +11,47 @@ const IntroSection = () => {
     }
   };
 
-  // Split text into lines for staggered animation
-  const textLines = [
-    "When your online rights are violated, we exist to protect them —",
-    "defending individuals and brands against attacks, misinformation,",
-    "unfair exposure, and false narratives, while ensuring your reputation",
-    "stays untouchable, your image protected, and your rights upheld online."
-  ];
-
   return (
-    <section id="home" className="scroll-section flex items-center justify-center relative" ref={ref}>
+    <section id="home" className="scroll-section flex flex-col items-center justify-center relative" ref={ref}>
       <div className="global-container">
-        <div className="flex items-center justify-center min-h-[50vh] text-center">
+        <div className="flex flex-col items-center justify-center min-h-[50vh] text-center space-y-8">
+          {/* Logo */}
+          <div className={`transition-all duration-800 ease-out ${
+            isInView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
+              justzoom
+            </h2>
+          </div>
+
+          {/* Main paragraph */}
           <div className="intro-text max-w-4xl">
-            {textLines.map((line, index) => (
-              <p 
-                key={index}
-                className={`mb-2 transition-all duration-600 ease-out ${
-                  isInView 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-5'
-                }`}
-                style={{ 
-                  transitionDelay: isInView ? `${index * 150}ms` : '0ms' 
-                }}
-              >
-                {line}
-              </p>
-            ))}
+            <p className={`body-large text-foreground leading-relaxed transition-all duration-800 ease-out ${
+              isInView 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-8'
+            }`}
+            style={{ 
+              transitionDelay: isInView ? '200ms' : '0ms' 
+            }}>
+              When your online rights are <span className="text-accent font-medium">violated</span>, we exist to protect them — defending individuals and brands against attacks, misinformation, unfair exposure, and false narratives, while ensuring your reputation stays untouchable, your image protected, and your rights upheld online.
+            </p>
+          </div>
+
+          {/* Subtitle */}
+          <div className="max-w-3xl">
+            <p className={`text-lg text-muted-foreground leading-relaxed transition-all duration-800 ease-out ${
+              isInView 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-8'
+            }`}
+            style={{ 
+              transitionDelay: isInView ? '400ms' : '0ms' 
+            }}>
+              Professional digital rights protection and reputation management services.
+            </p>
           </div>
         </div>
       </div>
