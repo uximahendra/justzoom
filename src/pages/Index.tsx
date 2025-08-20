@@ -60,6 +60,7 @@ const Index = () => {
     <>
       <HeaderBar onMenuClick={handleMenuOpen} />
       <OverlayMenu isOpen={isMenuOpen} onClose={handleMenuClose} />
+      <FixedTopLogo />
       
       <main>
         <IntroSection />
