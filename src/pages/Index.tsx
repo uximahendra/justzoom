@@ -5,9 +5,11 @@ import FixedTopLogo from "@/components/FixedTopLogo";
 import IntroSection from "@/components/IntroSection";
 import WeDoSection from "@/components/WeDoSection";
 import CTASection from "@/components/CTASection";
+import WelcomeIntro from "@/components/WelcomeIntro";
 
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(true);
   
   const services = [
     "We do Content, Image & Video Removal",
@@ -27,6 +29,14 @@ const Index = () => {
   const handleMenuClose = () => {
     setIsMenuOpen(false);
   };
+
+  const handleWelcomeComplete = () => {
+    setShowWelcome(false);
+  };
+
+  if (showWelcome) {
+    return <WelcomeIntro onComplete={handleWelcomeComplete} />;
+  }
 
   return (
     <>
