@@ -15,34 +15,34 @@ const IntroSection = () => {
     <section id="home" className="scroll-section flex flex-col items-center justify-center relative" ref={ref}>
       <div className="global-container">
         <div className="flex flex-col items-center justify-center min-h-[50vh] text-center space-y-8">
-          {/* Logo */}
+          {/* "at" text */}
           <div className={`transition-all duration-800 ease-out ${
             isInView 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
           }`}>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
-              justzoom
-            </h2>
-          </div>
-
-          {/* Main paragraph */}
-          <div className="intro-text max-w-4xl">
-            <p className={`body-large text-foreground leading-relaxed transition-all duration-800 ease-out ${
-              isInView 
-                ? 'opacity-100 translate-y-0' 
-                : 'opacity-0 translate-y-8'
-            }`}
-            style={{ 
-              transitionDelay: isInView ? '200ms' : '0ms' 
-            }}>
-              When your online rights are <span className="text-accent font-medium">violated</span>, we exist to protect them — defending individuals and brands against attacks, misinformation, unfair exposure, and false narratives, while ensuring your reputation stays untouchable, your image protected, and your rights upheld online.
+            <p className="text-2xl md:text-3xl text-accent font-light tracking-wide">
+              at
             </p>
           </div>
 
-          {/* Subtitle */}
-          <div className="max-w-3xl">
-            <p className={`text-lg text-muted-foreground leading-relaxed transition-all duration-800 ease-out ${
+          {/* Main brand name */}
+          <div className={`transition-all duration-800 ease-out ${
+            isInView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}
+          style={{ 
+            transitionDelay: isInView ? '200ms' : '0ms' 
+          }}>
+            <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-foreground tracking-tight leading-none">
+              justzoom
+            </h1>
+          </div>
+
+          {/* Main paragraph */}
+          <div className="intro-text max-w-4xl mt-12">
+            <p className={`text-xl md:text-2xl text-foreground leading-relaxed font-light transition-all duration-800 ease-out ${
               isInView 
                 ? 'opacity-100 translate-y-0' 
                 : 'opacity-0 translate-y-8'
@@ -50,7 +50,7 @@ const IntroSection = () => {
             style={{ 
               transitionDelay: isInView ? '400ms' : '0ms' 
             }}>
-              Professional digital rights protection and reputation management services.
+              When your online rights are violated, we exist to protect them. Defending individuals and brands against attacks, misinformation, unfair exposure, and false narratives, while ensuring your reputation stays untouchable, your image protected, and your rights upheld online.
             </p>
           </div>
         </div>
