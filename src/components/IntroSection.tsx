@@ -15,17 +15,6 @@ const IntroSection = () => {
     <section id="home" className="scroll-section flex flex-col items-center justify-center relative" ref={ref}>
       <div className="global-container">
         <div className="flex flex-col items-center justify-center min-h-[50vh] text-center space-y-8">
-          {/* "at" text */}
-          <div className={`transition-all duration-800 ease-out ${
-            isInView 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-8'
-          }`}>
-            <p className="text-2xl md:text-3xl text-accent font-light tracking-wide">
-              at
-            </p>
-          </div>
-
           {/* Main brand name */}
           <div className={`transition-all duration-800 ease-out ${
             isInView 
