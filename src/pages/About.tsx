@@ -2,6 +2,7 @@ import { useState } from "react";
 import HeaderBar from "@/components/HeaderBar";
 import OverlayMenu from "@/components/OverlayMenu";
 import FixedTopLogo from "@/components/FixedTopLogo";
+import AboutPageTitle from "@/components/AboutPageTitle";
 import AboutIntroSection from "@/components/AboutIntroSection";
 import AboutTitleSection from "@/components/AboutTitleSection";
 import AboutClientSection from "@/components/AboutClientSection";
@@ -46,6 +47,7 @@ const About = () => {
     <>
       <HeaderBar onMenuClick={handleMenuOpen} />
       <OverlayMenu isOpen={isMenuOpen} onClose={handleMenuClose} />
+      <AboutPageTitle />
       <FixedTopLogo />
       
       <main>

@@ -21,6 +21,7 @@ export default {
 			fontFamily: {
 				poppins: ['Poppins', 'system-ui', 'sans-serif'],
 				noto: ['Noto Serif Armenian', 'serif'],
+				'noto-serif': ['Noto Serif', 'serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
