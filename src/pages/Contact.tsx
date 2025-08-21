@@ -2,7 +2,7 @@ import { useState } from 'react';
 import HeaderBar from '@/components/HeaderBar';
 import OverlayMenu from '@/components/OverlayMenu';
 import FixedTopLogo from '@/components/FixedTopLogo';
-import AboutFooter from '@/components/AboutFooter';
+
 import ContactIntroSection from '@/components/ContactIntroSection';
 import ContactDetailsSection from '@/components/ContactDetailsSection';
 import ContactWhySection from '@/components/ContactWhySection';
@@ -31,8 +31,6 @@ const Contact = () => {
         <ContactWhySection />
         <ContactFinalSection />
       </main>
-      
-      <AboutFooter />
     </div>
   );
 };

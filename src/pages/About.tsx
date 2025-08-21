@@ -7,7 +7,7 @@ import AboutIntroSection from "@/components/AboutIntroSection";
 import AboutTitleSection from "@/components/AboutTitleSection";
 import AboutClientSection from "@/components/AboutClientSection";
 import AboutCTASection from "@/components/AboutCTASection";
-import AboutFooter from "@/components/AboutFooter";
+
 
 const About = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -63,7 +63,6 @@ const About = () => {
         ))}
         
         <AboutCTASection />
-        <AboutFooter />
       </main>
     </>
   );

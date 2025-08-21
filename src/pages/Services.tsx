@@ -6,7 +6,7 @@ import OverlayMenu from '@/components/OverlayMenu';
 import ServicesIntroSection from '@/components/ServicesIntroSection';
 import ServiceDetailSection from '@/components/ServiceDetailSection';
 import ServicesYourSituationSection from '@/components/ServicesYourSituationSection';
-import AboutFooter from '@/components/AboutFooter';
+
 
 const Services = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -66,8 +66,6 @@ const Services = () => {
         
         <ServicesYourSituationSection />
       </main>
-      
-      <AboutFooter />
     </div>
   );
 };
