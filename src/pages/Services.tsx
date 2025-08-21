@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import HeaderBar from '@/components/HeaderBar';
+import ServicesPageTitle from '@/components/ServicesPageTitle';
 import FixedTopLogo from '@/components/FixedTopLogo';
 import OverlayMenu from '@/components/OverlayMenu';
 import ServicesIntroSection from '@/components/ServicesIntroSection';
@@ -48,6 +49,7 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-background">
       <HeaderBar onMenuClick={() => setIsMenuOpen(true)} />
+      <ServicesPageTitle />
       <FixedTopLogo />
       <OverlayMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       
