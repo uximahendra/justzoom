@@ -13,21 +13,14 @@ const ServiceDetailSection = ({ title, description }: ServiceDetailSectionProps)
       <div className="global-container">
         <div className="flex items-center justify-center min-h-[50vh] text-center">
           <div className="max-w-4xl">
-            <h2 className={`service-heading mb-8 transition-all duration-600 ease-out ${
-              isInView 
-                ? 'opacity-100 translate-y-0' 
-                : 'opacity-0 translate-y-8'
+            <h2 className={`service-heading mb-8 section-heading-animate ${
+              isInView ? 'in-view' : ''
             }`}>
               {title}
             </h2>
-            <p className={`service-subtext transition-all duration-600 ease-out ${
-              isInView 
-                ? 'opacity-100 translate-y-0' 
-                : 'opacity-0 translate-y-8'
-            }`}
-            style={{ 
-              transitionDelay: isInView ? '200ms' : '0ms' 
-            }}>
+            <p className={`service-subtext section-text-animate ${
+              isInView ? 'in-view' : ''
+            }`}>
               {description}
             </p>
           </div>

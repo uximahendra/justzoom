@@ -14,10 +14,8 @@ const WeDoSection = ({ title, id }: WeDoSectionProps) => {
       <div className="global-container">
         <div className="flex items-center justify-center min-h-[50vh] text-center">
           <div className="relative">
-            <h2 className={`service-title transition-all duration-600 ease-out ${
-              isInView 
-                ? 'opacity-100 translate-y-0' 
-                : 'opacity-0 translate-y-8'
+            <h2 className={`service-title section-heading-animate ${
+              isInView ? 'in-view' : ''
             }`}>
               {title}
             </h2>

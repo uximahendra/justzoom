@@ -17,14 +17,9 @@ const IntroSection = () => {
         <div className="flex flex-col items-center justify-center min-h-[50vh] text-center space-y-8">
           {/* Main paragraph */}
           <div className="intro-text max-w-4xl mt-12">
-            <p className={`text-xl md:text-2xl text-foreground leading-relaxed font-light transition-all duration-800 ease-out ${
-              isInView 
-                ? 'opacity-100 translate-y-0' 
-                : 'opacity-0 translate-y-8'
-            }`}
-            style={{ 
-              transitionDelay: isInView ? '200ms' : '0ms' 
-            }}>
+            <p className={`text-xl md:text-2xl text-foreground leading-relaxed font-light section-text-animate ${
+              isInView ? 'in-view' : ''
+            }`}>
               When your online rights are violated, we exist to protect them. Defending individuals and brands against attacks, misinformation, unfair exposure, and false narratives, while ensuring your reputation stays untouchable, your image protected, and your rights upheld online.
             </p>
           </div>

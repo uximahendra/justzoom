@@ -7,7 +7,8 @@ export const useScrollAnimation = (threshold = 0.1) => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        // Only trigger animation on enter, not on exit (for crisp snap scrolling)
+        if (entry.isIntersecting && !isInView) {
           setIsInView(true);
         }
       },
@@ -23,7 +24,7 @@ export const useScrollAnimation = (threshold = 0.1) => {
         observer.unobserve(ref.current);
       }
     };
-  }, [threshold]);
+  }, [threshold, isInView]);
 
   return { ref, isInView };
 };
