@@ -67,15 +67,6 @@ const Index = () => {
       <OverlayMenu isOpen={isMenuOpen} onClose={handleMenuClose} />
       <FixedTopLogo />
       
-      {/* Bottom right CTA button */}
-      <div className="fixed bottom-16 right-8 md:right-16 z-30 pointer-events-auto">
-        <button
-          onClick={handleContactClick}
-          className="font-noto font-normal text-foreground underline hover:text-muted-foreground transition-all duration-300 text-xl md:text-2xl lg:text-3xl"
-        >
-          Let us work — Contact us →
-        </button>
-      </div>
       
       <main>
         <IntroSection />
