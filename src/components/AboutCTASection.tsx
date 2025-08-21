@@ -4,23 +4,21 @@ const AboutCTASection = () => {
   };
 
   return (
-    <section id="about-contact" className="scroll-section flex items-center justify-center">
+    <section id="about-contact" className="scroll-section flex items-center justify-center relative">
       <div className="global-container">
         <div className="flex items-center justify-center min-h-[50vh] text-center">
           <div>
             <h2 className="about-cta-text mb-4">
               Ready to protect your name, your image, and your digital presence?
             </h2>
-            <p className="about-cta-text">
-              Let's talk — 
+            <div className="absolute bottom-16 right-8 md:right-16">
               <button
                 onClick={handleContactClick}
-                className="underline hover:no-underline transition-all duration-200 hover:opacity-60 focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2 ml-2"
+                className="font-noto font-normal text-foreground underline hover:text-muted-foreground transition-all duration-300 text-xl md:text-2xl lg:text-3xl"
               >
-                Contact us
+                Let's talk — Contact us →
               </button>
-              .
-            </p>
+            </div>
           </div>
         </div>
       </div>

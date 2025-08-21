@@ -26,7 +26,7 @@ const AboutPageTitle = () => {
       className={`fixed left-1/2 transform -translate-x-1/2 z-[900] transition-all duration-700 ease-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
-      style={{ top: 'calc(var(--header-height) - 8px)' }}
+      style={{ top: '80px' }}
     >
       <span 
         className="font-noto-serif font-normal tracking-wide"
